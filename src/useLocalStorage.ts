@@ -1,6 +1,7 @@
 type Config = {
     speed: number;
-    memory: string[]
+    memory: string[];
+    memoText: string;
 }
 
 const KEY = 'config'
@@ -13,7 +14,8 @@ export const useLocalStorage = () => {
         }
         return {
             speed: 15,
-            memory: ['R UR 599 <BK>', 'TU <VA> E E', '', '', '', '', '', '', '', '']
+            memory: ['R UR 599 <BK>', 'TU <VA> E E', '', '', '', '', '', '', '', ''],
+            memoText: ''
         }
     }
 
@@ -30,6 +32,10 @@ export const useLocalStorage = () => {
         _set({ ..._get(), memory })
     }
 
+    const setMemoText = (memoText: string) => {
+        _set({ ..._get(), memoText })
+    }
+
     const getSpeed = (): number => {
         return _get().speed
     }
@@ -38,5 +44,9 @@ export const useLocalStorage = () => {
         return _get().memory
     }
 
-    return { setMemory, setSpeed, getMemory, getSpeed }
+    const getMemoText = (): string => {
+        return _get().memoText
+    }
+
+    return { setMemory, setSpeed, setMemoText, getMemory, getSpeed, getMemoText }
 }

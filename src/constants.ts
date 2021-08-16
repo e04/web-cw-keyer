@@ -54,3 +54,5 @@ export const MORSE_TABLE = {
     "&": ". ...",
     ";": "-.-.-."
 }
+
+export const monospaceFontFamily = { fontFamily: '"Menlo", "Courier", monospace' }

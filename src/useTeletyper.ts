@@ -41,7 +41,7 @@ const getSound = async (char: string, speed: number, isConcatChars: boolean, ton
 export const useTeletyper = () => {
     const storage = useLocalStorage()
     const [speed, _setSpeed] = useState(storage.getSpeed())
-    const [typedText, setTypedText] = useState('')
+    const [sendingText, setTypedText] = useState('')
     const [typing, setTypingState] = useState(false)
     const [sentText, setSentText] = useState('')
 
@@ -55,9 +55,17 @@ export const useTeletyper = () => {
         storage.setSpeed(speed)
     }
 
-    const onTypedTextChange = (newText: string) => {
+    const send = (newText: string) => {
         setTypedText(newText.toUpperCase())
         refText.current = newText.toUpperCase()
+        if (!typing) {
+            type()
+        }
+    }
+
+    const addSend = (addText: string) => {
+        setTypedText(oldText => oldText + ' ' + addText)
+        refText.current = refText + ' ' + addText
         if (!typing) {
             type()
         }
@@ -96,5 +104,5 @@ export const useTeletyper = () => {
         type()
     }
 
-    return { typedText, sentText, onTypedTextChange, speed, setSpeed }
+    return { sendingText, sentText, send, addSend, speed, setSpeed }
 }
