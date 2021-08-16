@@ -75,8 +75,10 @@ function App() {
           <Button colorScheme="red" onClick={stop}>STOP</Button>
         </HStack>
         <HStack spacing={0}>
-          <Box w="40%">
+          <Box w="50%">
             <Text ref={$sentText} color="gray" align="right" sx={{
+              opacity: 0.5,
+              marginBottom: '1px',
               whiteSpace: 'nowrap',
               overflow: 'scroll',
               fontFamily: '"Menlo", "Courier", monospace',
@@ -85,7 +87,7 @@ function App() {
               }
             }}>{teletyper.sentText}</Text>
           </Box>
-          <Box w="60%">
+          <Box w="50%">
             <Input
               sx={{ fontFamily: '"Menlo", "Courier", monospace'}}
               variant="flushed"
@@ -96,10 +98,9 @@ function App() {
         {memory.map((item, index) => {
           return (
             <InputGroup key={index}>
-
               <Input sx={{ fontFamily: '"Menlo", "Courier", monospace' }} pr="16" value={item} onChange={(e) => { updateMemory(e.target.value, index) }} />
               <InputRightElement width="16" p={1}>
-                <Button colorScheme="blue" size="sm" variant="outline" onClick={() => { sendMemory(index) }}>SEND</Button>
+                <Button borderRadius="3" colorScheme="blue" size="sm" variant="outline" onClick={() => { sendMemory(index) }}>SEND</Button>
               </InputRightElement>
             </InputGroup>)
         })}

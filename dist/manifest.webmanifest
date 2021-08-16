@@ -1,1 +1,1 @@
-{"name":"keyer","short_name":"keyer","start_url":"./","display":"standalone","background_color":"#ffffff","lang":"en","scope":"./"}
+{"name":"web-cw-keyer","short_name":"Keyer","start_url":"/web-cw-keyer/","display":"standalone","background_color":"#fff","lang":"en","scope":"/web-cw-keyer/","theme_color":"#fff","icons":[{"src":"192x192.png","sizes":"192x192","type":"image/png"},{"src":"180x180.png","sizes":"180x180","type":"image/png"},{"src":"512x512.png","sizes":"512x512","type":"image/png"}]}
