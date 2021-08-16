@@ -1,4 +1,4 @@
-p {
+:not(input) {
     user-select: none;
     -webkit-user-select: none;
 }
