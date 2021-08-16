@@ -33,5 +33,9 @@ export default defineConfig({
       ]
     }
   })],
-  base: './'
+  base: './',
+  root: './src',
+  build: {
+    outDir: '../dist'
+  }
 })
