@@ -66,10 +66,10 @@ function App() {
       <Stack spacing={4}>
         <Textarea
           placeholder="MEMO"
-          size="xs"
           resize="vertical"
           variant="flushed"
           value={memoText.text}
+          sx={monospaceFontFamily}
           onChange={(e) => memoText.setText(e.target.value)}
         />
         <HStack spacing={4}>
