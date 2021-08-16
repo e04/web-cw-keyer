@@ -2,7 +2,8 @@ import { useCallback, useEffect } from "react"
 import * as Tone from 'tone'
 import { useRef } from 'react'
 
-Tone.context.lookAhead = 0
+Tone.context.lookAhead = 0.01
+
 export const useTone = () => {
     const ampEnv = useRef<Tone.AmplitudeEnvelope | null>(null)
     const osc = useRef<Tone.Oscillator | null>(null)
