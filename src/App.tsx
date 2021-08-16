@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react'
+import './global.css'
 import { Container, Stack, Text, HStack, Input, Box, Button, Slider, SliderTrack, SliderFilledTrack, SliderThumb, InputGroup, InputRightElement } from "@chakra-ui/react"
 import { useTone } from './useTone'
 import { useTeletyper } from './useTeletyper'
