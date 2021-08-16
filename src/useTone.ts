@@ -9,10 +9,10 @@ export const useTone = () => {
 
     useEffect(() => {
         ampEnv.current = new Tone.AmplitudeEnvelope({
-            attack: 0.08,
+            attack: 0.002,
             decay: 0,
             sustain: 0,
-            release: 0.08
+            release: 0.02
         }).toDestination();
         osc.current = new Tone.Oscillator(800, "sine").connect(ampEnv.current)
         return () => {
