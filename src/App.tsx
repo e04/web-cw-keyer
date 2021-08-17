@@ -19,38 +19,17 @@ import {
 import { useTone } from "./useTone";
 import { useTeletyper } from "./useTeletyper";
 import { useEffect } from "react";
-import { useLocalStorage } from "./useLocalStorage";
 import { monospaceFontFamily } from "./constants";
 import { useMemoText } from "./useMemoText";
+import { useMemory } from "./useMemory";
 
 function App() {
   const tone = useTone();
   const teletyper = useTeletyper();
-  const storage = useLocalStorage();
   const memoText = useMemoText();
+  const memory = useMemory(teletyper);
   const $sentText = useRef<HTMLParagraphElement>(null);
 
-  const [memory, setMemory] = useState(storage.getMemory());
-
-  const updateMemory = (value: string, index: number) => {
-    setMemory((oldMemory) => {
-      const newMemory = oldMemory.slice(0);
-      newMemory[index] = value.toUpperCase();
-
-      storage.setMemory(newMemory);
-      return newMemory;
-    });
-  };
-
-  const sendMemory = (index: number) => {
-    const text = memory[index];
-    if (teletyper.sendingText.length > 0) {
-      teletyper.addSend(text);
-      return;
-    }
-
-    teletyper.send(text);
-  };
 
   const stop = () => {
     teletyper.send("");
@@ -151,7 +130,7 @@ function App() {
             />
           </Box>
         </HStack>
-        {memory.map((item, index) => {
+        {memory.content.map((item, index) => {
           return (
             <InputGroup key={index}>
               <Input
@@ -159,7 +138,7 @@ function App() {
                 pr="16"
                 value={item}
                 onChange={(e) => {
-                  updateMemory(e.target.value, index);
+                  memory.update(e.target.value, index);
                 }}
               />
               <InputRightElement width="16" p={1}>
@@ -169,7 +148,7 @@ function App() {
                   size="sm"
                   variant="outline"
                   onClick={() => {
-                    sendMemory(index);
+                    memory.send(index);
                   }}
                 >
                   SEND
