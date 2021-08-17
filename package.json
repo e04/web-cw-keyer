@@ -1,5 +1,5 @@
 {
-  "name": "keyer",
+  "name": "Web-CW-Keyer",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",

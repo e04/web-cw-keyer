@@ -38,10 +38,13 @@ function App() {
     $sentText.current.scrollLeft = $sentText.current.scrollWidth!;
   }, [teletyper.sentText]);
 
+  const isSending = teletyper.sendingText.length > 0;
+
   return (
     <Container pt={2}>
       <Stack spacing={4}>
         <Textarea
+          maxLength={8000}
           placeholder="MEMO"
           resize="vertical"
           variant="flushed"
@@ -65,37 +68,42 @@ function App() {
             }}
             max={40}
             min={5}
+            size="lg"
           >
             <SliderTrack>
               <SliderFilledTrack />
             </SliderTrack>
             <SliderThumb />
           </Slider>
-          <Button
-            w={24}
-            colorScheme="blue"
-            onMouseDown={() => {
-              tone.start();
-            }}
-            onMouseUp={() => {
-              tone.stop();
-            }}
-            onMouseLeave={() => {
-              tone.stop();
-            }}
-            onTouchStart={() => {
-              tone.start();
-            }}
-            onTouchEnd={() => {
-              tone.stop();
-            }}
-            onTouchCancel={() => {
-              tone.stop();
-            }}
-          />
-          <Button w={24} colorScheme="red" onClick={stop}>
-            STOP
-          </Button>
+          {isSending ? (
+            <Button w={36} colorScheme="red" size="lg" onClick={stop}>
+              STOP
+            </Button>
+          ) : (
+            <Button
+              size="lg"
+              w={36}
+              colorScheme="blue"
+              onMouseDown={() => {
+                tone.start();
+              }}
+              onMouseUp={() => {
+                tone.stop();
+              }}
+              onMouseLeave={() => {
+                tone.stop();
+              }}
+              onTouchStart={() => {
+                tone.start();
+              }}
+              onTouchEnd={() => {
+                tone.stop();
+              }}
+              onTouchCancel={() => {
+                tone.stop();
+              }}
+            />
+          )}
         </HStack>
         <HStack spacing={0}>
           <Box w="50%">
@@ -119,6 +127,7 @@ function App() {
           </Box>
           <Box w="50%">
             <Input
+              maxLength={1000}
               sx={monospaceFontFamily}
               variant="flushed"
               value={teletyper.sendingText}

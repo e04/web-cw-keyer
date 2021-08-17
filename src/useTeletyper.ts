@@ -79,7 +79,7 @@ export const useTeletyper = () => {
   const type = async () => {
     if (refText.current.length === 0) {
       setTypingState(false);
-      setSentText((text) => text + " ");
+      setSentText((text) => text + "　");
       return;
     }
     setTypingState(true);
@@ -99,7 +99,10 @@ export const useTeletyper = () => {
         await getSound(sendChar, speed, isConcatChars.current, tone);
     }
 
-    setSentText((text) => text + sendChar);
+    setSentText((text) => {
+      const spaceReplaced = sendChar.replace(" ", "　");
+      return text + spaceReplaced;
+    });
     setTypedText((text) => {
       const sliced = text.slice(1);
       refText.current = text.slice(1);

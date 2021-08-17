@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef } from "react";
 import * as Tone from "tone";
 
-Tone.context.lookAhead = 0.02;
+Tone.context.lookAhead = 0.01;
 
 export const useTone = () => {
   const ampEnv = useRef<Tone.AmplitudeEnvelope | null>(null);
