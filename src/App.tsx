@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "./global.css";
 import {
   Container,
@@ -18,7 +18,6 @@ import {
 } from "@chakra-ui/react";
 import { useTone } from "./useTone";
 import { useTeletyper } from "./useTeletyper";
-import { useEffect } from "react";
 import { monospaceFontFamily } from "./constants";
 import { useMemoText } from "./useMemoText";
 import { useMemory } from "./useMemory";
@@ -30,14 +29,13 @@ function App() {
   const memory = useMemory(teletyper);
   const $sentText = useRef<HTMLParagraphElement>(null);
 
-
   const stop = () => {
     teletyper.send("");
   };
 
   useEffect(() => {
     if ($sentText.current == null) return;
-    $sentText.current.scrollLeft = $sentText.current?.scrollWidth!;
+    $sentText.current.scrollLeft = $sentText.current.scrollWidth!;
   }, [teletyper.sentText]);
 
   return (
@@ -94,7 +92,7 @@ function App() {
             onTouchCancel={() => {
               tone.stop();
             }}
-          ></Button>
+          />
           <Button w={24} colorScheme="red" onClick={stop}>
             STOP
           </Button>
