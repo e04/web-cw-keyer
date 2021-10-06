@@ -61,8 +61,8 @@ export const useTeletyper = () => {
   };
 
   const send = (newText: string) => {
-    setTypedText(newText.toUpperCase());
-    refText.current = newText.toUpperCase();
+    setTypedText(newText);
+    refText.current = newText;
     if (!typing) {
       type();
     }
@@ -84,7 +84,7 @@ export const useTeletyper = () => {
     }
     setTypingState(true);
 
-    const sendChar = refText.current.slice(0, 1);
+    const sendChar = refText.current.slice(0, 1).toUpperCase();
 
     switch (sendChar) {
       case "<":

@@ -9,7 +9,7 @@ export const useMemory = (teletyper: ReturnType<typeof useTeletyper>) => {
   const update = (value: string, index: number) => {
     setMemory((oldContent) => {
       const newContent = oldContent.slice(0);
-      newContent[index] = value.toUpperCase();
+      newContent[index] = value;
 
       storage.setMemory(newContent);
       return newContent;

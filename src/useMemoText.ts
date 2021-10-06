@@ -10,9 +10,8 @@ export const useMemoText = () => {
   }, []);
 
   const setText = (newText: string) => {
-    const upprered = newText.toUpperCase();
-    _setText(upprered);
-    storage.setMemoText(upprered);
+    _setText(newText);
+    storage.setMemoText(newText);
   };
 
   return { setText, text };
