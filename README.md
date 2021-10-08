@@ -17,4 +17,4 @@ https://mobilesyrup.com/2020/05/24/how-install-progressive-web-app-pwa-android-i
 
 ## Circuit of Interface
 
-https://crcit.net/c/01af5ac96239407682a12cf2dd7ea2d7
+<img width="645" alt="スクリーンショット 2021-10-09 1 49 13" src="https://user-images.githubusercontent.com/47185462/136593997-65b9dad1-103a-43b8-9f42-6f1cdc426e5f.png">
