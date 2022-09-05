@@ -14,7 +14,3 @@ https://e04.github.io/web-cw-keyer/
 This app is PWA. Please install following below steps.
 
 https://mobilesyrup.com/2020/05/24/how-install-progressive-web-app-pwa-android-ios-pc-mac/
-
-## Circuit of Interface
-
-<img width="645" alt="スクリーンショット 2021-10-09 1 49 13" src="https://user-images.githubusercontent.com/47185462/136593997-65b9dad1-103a-43b8-9f42-6f1cdc426e5f.png">
